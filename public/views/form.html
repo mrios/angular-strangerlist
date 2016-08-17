@@ -1,20 +1,22 @@
 <div class="form-area col-md-3">
     <div class="details">
         <h3>Item Details</h3>
-        <form method="POST" action="/api/items" name="strangerlist.detailsForm" class="form-horizontal container-fluid" enctype="multipart/form-data">
+        <form name="strangerlist.detailsForm" class="form-horizontal container-fluid" enctype="multipart/form-data">
             <input type="hidden" name="id" value="{{strangerlist.editedItem.id}}">
             <div class="form-group">
                 <div class="controls">
                     <label class="control-label" for="inputTitle">*Image <span class="label label-info">320px x 320px</span></label>
                     <input type="file" id="inputImage" name="imageSrc"
                         placeholder="Image" 
-                        fileread="strangerlist.editedItem.imageSrc" 
+                        ng-model="strangerlist.detailsForm.imageSrc"
                         class="form-control" 
-                        ngf-select ngf-pattern="'image/*'"
+                        ngf-select ngf-pattern="'.jpg,.gif,.png'"
                         ngf-accept="'image/*'" 
                         ngf-max-width="320" ngf-max-height="320"
-                        value="{{strangerlist.editedItem.imageSrc}}"/>
-                    <i ng-show="strangerlist.detailsForm.imageSrc.$error.required">*required</i><br>
+                        />
+                    <i ng-show="strangerlist.detailsForm.imageSrc.$error.required">*required</i>
+                    <i ng-show="strangerlist.detailsForm.imageSrc.$error.maxWidth">*max width: 320px</i>
+                    <i ng-show="strangerlist.detailsForm.imageSrc.$error.maxHeight">*max height: 320px</i>
                 </div>
             </div>
             
@@ -33,12 +35,14 @@
                  ng-click="strangerlist.updateCancel()">
                     Cancel
                 </button>
-                <button type="submit" class="btn pull-right btn-primary"
-                        ng-disabled="!strangerlist.detailsForm.$valid">Update Item</button>
+                <button class="btn pull-right btn-primary"
+                        ng-disabled="!strangerlist.detailsForm.$valid"
+                        ng-click="strangerlist.updateItem(strangerlist.detailsForm.imageSrc)">Update Item</button>
             </div>
             <div ng-if="!strangerlist.currentItem">
-                <button type="submit" class="btn pull-right btn-success"
-                        ng-disabled="!strangerlist.detailsForm.$valid">Create Item</button>
+                <button class="btn pull-right btn-success"
+                        ng-disabled="!strangerlist.detailsForm.$valid"
+                        ng-click="strangerlist.createItem(strangerlist.detailsForm.imageSrc)">Create Item</button>
                         <br /><br />
             </div>
         </form>

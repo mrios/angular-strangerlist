@@ -46,7 +46,7 @@ app.get('/api/items', function(req, res) {
   });
 });
 
-app.post('/api/items', upload.single('imageSrc'), function(req, res) {
+app.post('/api/items', upload.single('file'), function(req, res) {
     //write file
     fs.readFile(ITEMS_FILE, function(err, data) {
       if (err) {
@@ -54,29 +54,31 @@ app.post('/api/items', upload.single('imageSrc'), function(req, res) {
         process.exit(1);
       }
       var items = JSON.parse(data);
-      
-      if(!_.isUndefined(req.body.id) && req.body.id !=="") {
 
-        var id = parseInt(req.body.id);
-        
-        // Find item index using indexOf+find
-        var index = _.indexOf(items, _.find(items, {id: id}));
+      var id = _.has(req.body,'item')
+        ? parseInt(req.body.item.id)
+        : 0;
+
+      var index = _.indexOf(items, _.find(items, {id: id}));
+      
+      if(!_.isUndefined(id) && id !=="" && index !== -1) {
+
         var original = items[index];
 
         if(index>=0) {
           // Replace item at index using native splice
-          var objectUpdated = _.has(req,'file') 
-            ? {id: id, imageSrc: req.file.originalname, text: req.body.text}
-            : {id: id, imageSrc: original.imageSrc, text: req.body.text}
+          var objectUpdated = _.has(req,'imageSrc') 
+            ? {id: id, imageSrc: req.file.originalname, text: req.body.item.text}
+            : {id: id, imageSrc: original.imageSrc, text: req.body.item.text}
 
           items.splice(index, 1, objectUpdated);
         }
       }
       else {
-
+        
         var newItem = {
           id: Date.now(),
-          text: req.body.text,
+          text: req.body.item.text,
           imageSrc: req.file.originalname
         };
         items.push(newItem);
@@ -88,9 +90,8 @@ app.post('/api/items', upload.single('imageSrc'), function(req, res) {
           process.exit(1);
         }
         
-        res.redirect('/');
+        res.json(items);
       });
-        
   
   });
   
@@ -103,12 +104,14 @@ app.put('/api/items', function(req, res) {
       process.exit(1);
     }
 
-    fs.writeFile(ITEMS_FILE, JSON.stringify(req.body, null, 4), function(err) {
+    var items = req.body;
+
+    fs.writeFile(ITEMS_FILE, JSON.stringify(items, null, 4), function(err) {
       if (err) {
         console.error(err);
         process.exit(1);
       }
-      res.json(req.body);
+      res.json(items);
     });
   });
 });
