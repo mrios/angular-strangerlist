@@ -13,8 +13,7 @@
                         ngf-select ngf-pattern="'image/*'"
                         ngf-accept="'image/*'" 
                         ngf-max-width="320" ngf-max-height="320"
-                        ngf-resize="{width: 320, height: 320}"
-                        required ="" />
+                        required="!strangerlist.editedItem.imageSrc"/>
                     <i ng-show="strangerlist.detailsForm.imageSrc.$error.required">*required</i><br>
                 </div>
             </div>

@@ -4,7 +4,7 @@ var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
 var multer  = require('multer');
-var _ = require('lodash/core');
+var _ = require('lodash');
 var app = express();
 
 var ITEMS_FILE = path.join(__dirname, 'items.json');
@@ -54,10 +54,7 @@ app.post('/api/items', upload.single('imageSrc'), function(req, res) {
         process.exit(1);
       }
       var items = JSON.parse(data);
-      // NOTE: In a real implementation, we would likely rely on a database or
-      // some other approach (e.g. UUIDs) to ensure a globally unique id. We'll
-      // treat Date.now() as unique-enough for our purposes.
-
+      
       if(!_.isUndefined(req.body.id) && req.body.id !=="") {
 
         var id = parseInt(req.body.id);
@@ -90,9 +87,7 @@ app.post('/api/items', upload.single('imageSrc'), function(req, res) {
           console.error(err);
           process.exit(1);
         }
-        //res.json(items);
-        //upload image
-        //console.log("time to upload", req.file)
+        
         res.redirect('/');
       });
         
@@ -114,6 +109,30 @@ app.put('/api/items', function(req, res) {
         process.exit(1);
       }
       res.json(req.body);
+    });
+  });
+});
+
+app.delete('/api/items/:id', function(req, res) {
+  
+  fs.readFile(ITEMS_FILE, function(err, data) {
+    if (err) {
+      console.error(err);
+      process.exit(1);
+    }
+
+    var id = parseInt(req.params.id);
+    var items = JSON.parse(data);
+
+    items = _.reject(items, {id: id});
+
+    fs.writeFile(ITEMS_FILE, JSON.stringify(items, null, 4), function(err) {
+      if (err) {
+        console.error(err);
+        process.exit(1);
+      }
+
+      res.json(items);
     });
   });
 });

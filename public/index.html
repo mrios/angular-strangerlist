@@ -17,6 +17,18 @@
         <div ng-include="'views/list.html'"></div>
         <div ng-include="'views/form.html'"></div>
     </div>
+    <script id="myModalContent.html" type="text/ng-template">
+        <div class="modal-header">
+            <h3 class="modal-title">Removing element</h3>
+        </div>
+        <div class="modal-body">
+            <p>¿Are you shure to remove this element?</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="submit()">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
     <!-- JQuery and Jquery needed for sorting list-->
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
@@ -25,6 +37,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
     
     <!-- shim is needed to support non-HTML5 FormData browsers (IE8-9) -->
     <script src="assets/js/libs/ng-file-upload-shim.min.js"></script>

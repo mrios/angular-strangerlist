@@ -48,3 +48,11 @@ body { padding-top: 70px; }
   content: "Drop here";
   color: rgb(225,210,90);
 }
+
+.label {
+  font-size: 14px;
+}
+
+input {
+  margin-top: 5px;
+}
