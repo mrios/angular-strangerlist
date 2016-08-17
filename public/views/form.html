@@ -1,0 +1,42 @@
+<div class="form-area col-md-3">
+    <div class="details">
+        <h3>Item Details</h3>
+        <form method="POST" action="/api/items" name="strangerlist.detailsForm" class="form-horizontal container-fluid" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="{{strangerlist.editedItem.id}}">
+            <div class="form-group">
+                <div class="controls">
+                    <label class="control-label" for="inputTitle">*Image</label>
+                    <small>{{strangerlist.editedItem.imageSrc}}</small>
+                    <input type="file" id="inputImage" name="imageSrc"
+                        placeholder="Image" 
+                        ng-model="strangerlist.editedItem.imageSrc" 
+                        class="form-control" 
+                        accept="image/gif, image/jpeg"/>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="controls">
+                    <label class="control-label" for="inputText">*Text</label>
+
+                    <textarea rows="2" class="form-control" name="text" ng-model="strangerlist.editedItem.text">
+                        
+                    </textarea>
+                </div>
+            </div>
+            <div ng-if="strangerlist.currentItem">
+                <button class="btn btn-default"
+                 ng-click="strangerlist.updateCancel()">
+                    Cancel
+                </button>
+                <button type="submit" class="btn pull-right btn-primary"
+                        ng-disabled="!strangerlist.detailsForm.$valid">Update Item</button>
+            </div>
+            <div ng-if="!strangerlist.currentItem">
+                <button type="submit" class="btn pull-right btn-success"
+                        ng-disabled="!strangerlist.detailsForm.$valid">Create Item</button>
+                        <br /><br />
+            </div>
+        </form>
+    </div>
+</div>

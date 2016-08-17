@@ -1,0 +1,18 @@
+<div class="col-md-9">
+    <h1 class="">List Items ({{items.length}})</h1>
+    <ul ui-sortable="strangerlist.sortableOptions" ng-model="items" class="media-list">
+        <li ng-repeat="item in items" class="media">
+            <div class="media-left">
+                <figure class="col-md-3">
+                    <img src="assets/images/{{ item.imageSrc }}" class="media-object img-responsive img-rounded" alt="..."/>
+                </figure>
+            <div class="media-body">
+                <div class="btn-group pull-right" role="group" aria-label="...">
+                  <button type="button" class="btn btn-default" ng-click="strangerlist.setCurrentItem(item)">Edit</button>
+                  <button type="button" class="btn btn-default">Remove</button>
+                </div>
+                <p>{{ item.text }}</p>
+            </div>
+        </li>
+    </ul>
+</div>
