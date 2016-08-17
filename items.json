@@ -1,81 +1,67 @@
-
 [
-  {
-    "id": "1",
-    "text": "This is a test",
-    "imageSrc": "logo.jpg",
-    "order":"1"
-  },
-  {
-    "id": "2",
-    "text": "This is a test",
-    "imageSrc": "kids.jpg",
-    "order":"2"
-  },
-  {
-    "id": "3",
-    "text": "This is a test",
-    "imageSrc": "bikes-night.jpg",
-    "order":"3"
-  },
-  {
-    "id": "4",
-    "text": "This is a test",
-    "imageSrc": "eleven.jpg",
-    "order":"4"
-  },
-  {
-    "id": "5",
-    "text": "This is a test",
-    "imageSrc": "barb.jpg",
-    "order":"5"
-  },
-  {
-    "id": "6",
-    "text": "This is a test",
-    "imageSrc": "dragomon.jpg",
-    "order":"6"
-  },
-  {
-    "id": "7",
-    "text": "This is a test",
-    "imageSrc": "dustin.jpg",
-    "order":"7"
-  },
-  {
-    "id": "8",
-    "text": "This is a test",
-    "imageSrc": "lucas.jpg",
-    "order":"8"
-  },
-  {
-    "id": "9",
-    "text": "This is a test",
-    "imageSrc": "mike-guitar.jpg",
-    "order":"9"
-  },
-  {
-    "id": "10",
-    "text": "This is a test",
-    "imageSrc": "hawkins.jpg",
-    "order":"10"
-  },
-  {
-    "id": "11",
-    "text": "This is a test",
-    "imageSrc": "jonha-nancy.jpg",
-    "order":"11"
-  },
-  {
-    "id": "12",
-    "text": "This is a test",
-    "imageSrc": "eleven.jpg",
-    "order":"12"
-  },
-  {
-    "id": "13",
-    "text": "This is a test",
-    "imageSrc": "messages.jpg",
-    "order":"13"
-  }
+    {
+        "id": 1,
+        "text": "Will is hunted by a strange entity whereas his friends search for him only to find a lonely girl in the woods.",
+        "imageSrc": "logo.jpg"
+    },
+    {
+        "id": 2,
+        "text": "Mike hides the mysterious girl in his house. Joyce gets a strange phone call.",
+        "imageSrc": "kids.jpg"
+    },
+    {
+        "id": 3,
+        "text": "An increasingly concerned Nancy looks for Barb and finds out what Jonathan's been up to. Joyce is convinced Will is trying to talk to her.",
+        "imageSrc": "bikes-night.jpg"
+    },
+    {
+        "id": 4,
+        "text": "Refusing to believe Will is dead, Joyce tries to connect with her son. The boys give Eleven a makeover. Johnathan and Nancy form an unlikely alliance.",
+        "imageSrc": "eleven.jpg"
+    },
+    {
+        "id": 5,
+        "text": "Hopper breaks into the lab to find the truth about Will's death. The boys try to locate the 'gate' that will take them to Will.",
+        "imageSrc": "barb.jpg"
+    },
+    {
+        "id": 6,
+        "text": "Hopper and Joyce find the truth about the lab's experiments. After their fight, the boys look for the missing Eleven.",
+        "imageSrc": "dragomon.jpg"
+    },
+    {
+        "id": 7,
+        "text": "The government comes searching for Eleven. Eleven looks for Will in the Upside Down.",
+        "imageSrc": "dustin.jpg"
+    },
+    {
+        "id": "8",
+        "text": "Joyce and Hopper are taken in for questioning. Nancy and Jonathan prepare to fight the monster and save Will.",
+        "imageSrc": "lucas.jpg"
+    },
+    {
+        "id": 9,
+        "text": "This is a test",
+        "imageSrc": "mike-guitar.jpg"
+    },
+    {
+        "id": 10,
+        "text": "Creators: Matt Duffer, Ross Duffer",
+        "imageSrc": "hawkins.jpg"
+    },
+    {
+        "id": 11,
+        "text": "This is a test",
+        "imageSrc": "jonha-nancy.jpg"
+    },
+    {
+        "id": 12,
+        "text": "When a young boy disappears, his mother, a police chief, and his friends must confront terrifying forces in order to get him back.",
+        "imageSrc": "eleven.jpg"
+    },
+    {
+        "id": 13,
+        "text": "This is a test",
+        "imageSrc": "messages.jpg"
+    }
 ]

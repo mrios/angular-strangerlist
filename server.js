@@ -58,7 +58,7 @@ app.post('/api/items', upload.single('imageSrc'), function(req, res) {
       if(!_.isUndefined(req.body.id) && req.body.id !=="") {
 
         var id = parseInt(req.body.id);
-
+        
         // Find item index using indexOf+find
         var index = _.indexOf(items, _.find(items, {id: id}));
         var original = items[index];
@@ -76,8 +76,8 @@ app.post('/api/items', upload.single('imageSrc'), function(req, res) {
 
         var newItem = {
           id: Date.now(),
-          imageSrc: req.file.originalname,
-          text: req.body.text
+          text: req.body.text,
+          imageSrc: req.file.originalname
         };
         items.push(newItem);
       }

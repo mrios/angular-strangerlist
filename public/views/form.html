@@ -8,12 +8,12 @@
                     <label class="control-label" for="inputTitle">*Image <span class="label label-info">320px x 320px</span></label>
                     <input type="file" id="inputImage" name="imageSrc"
                         placeholder="Image" 
-                        ng-model="strangerlist.editedItem.imageSrc" 
+                        fileread="strangerlist.editedItem.imageSrc" 
                         class="form-control" 
                         ngf-select ngf-pattern="'image/*'"
                         ngf-accept="'image/*'" 
                         ngf-max-width="320" ngf-max-height="320"
-                        required="!strangerlist.editedItem.imageSrc"/>
+                        value="{{strangerlist.editedItem.imageSrc}}"/>
                     <i ng-show="strangerlist.detailsForm.imageSrc.$error.required">*required</i><br>
                 </div>
             </div>
