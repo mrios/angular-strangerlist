@@ -53,6 +53,6 @@ body { padding-top: 70px; }
   font-size: 14px;
 }
 
-input {
-  margin-top: 5px;
+.form-control {
+  margin-top: 7px;
 }

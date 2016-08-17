@@ -1,9 +1,9 @@
 # angular-strangerlist
-angular-strangerlist is a Single page Aplication built with angular and bootstrap 3 on frontend and express server on backend storing data in a json file. Supports file upload with dimension validation, sorting list, and a complete CRUD for each item. Uses web services GET, POST, PUT and DELETE.
+angular-strangerlist is a Single Page Application built with AngularJS and Bootstrap 3 on frontend and express server on backend storing data in a json file. Supports file upload with dimension validation, sorting list, and a complete CRUD for manages items. Uses web services GET, POST, PUT and DELETE.
 
 ## To use
 
-you need Node.js installed
+You need Node.js installed
 
 Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js
 uses an event-driven, non-blocking I/O model that makes it lightweight and
@@ -19,7 +19,9 @@ policies and releases are managed under an
 If you need help using or installing Node.js, please use the
 [nodejs/help](https://github.com/nodejs/help) issue tracker.
 
-### Node commands
+See an instructive video about [Installing Node.js and updating npm](https://docs.npmjs.com/getting-started/installing-node)
+
+### Running Node commands
 
 ```sh
 npm install
