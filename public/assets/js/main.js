@@ -1,1 +1,1 @@
-var mainApp = angular.module('mainApp', ['ui.sortable'])
+var mainApp = angular.module('mainApp', ['ui.sortable','ngFileUpload'])

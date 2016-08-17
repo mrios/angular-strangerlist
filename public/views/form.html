@@ -5,13 +5,17 @@
             <input type="hidden" name="id" value="{{strangerlist.editedItem.id}}">
             <div class="form-group">
                 <div class="controls">
-                    <label class="control-label" for="inputTitle">*Image</label>
-                    <small>{{strangerlist.editedItem.imageSrc}}</small>
+                    <label class="control-label" for="inputTitle">*Image <span class="label label-info">320px x 320px</span></label>
                     <input type="file" id="inputImage" name="imageSrc"
                         placeholder="Image" 
                         ng-model="strangerlist.editedItem.imageSrc" 
                         class="form-control" 
-                        accept="image/gif, image/jpeg"/>
+                        ngf-select ngf-pattern="'image/*'"
+                        ngf-accept="'image/*'" 
+                        ngf-max-width="320" ngf-max-height="320"
+                        ngf-resize="{width: 320, height: 320}"
+                        required ="" />
+                    <i ng-show="strangerlist.detailsForm.imageSrc.$error.required">*required</i><br>
                 </div>
             </div>
             
@@ -19,9 +23,10 @@
                 <div class="controls">
                     <label class="control-label" for="inputText">*Text</label>
 
-                    <textarea rows="2" class="form-control" name="text" ng-model="strangerlist.editedItem.text">
+                    <textarea rows="10" cols="30" class="form-control" name="text" ng-model="strangerlist.editedItem.text" ng-maxlength="300" placeholder="300 chars max" required="">
                         
                     </textarea>
+                    <i ng-show="strangerlist.detailsForm.text.$error.required">*required</i><br>
                 </div>
             </div>
             <div ng-if="strangerlist.currentItem">

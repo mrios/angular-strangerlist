@@ -58,28 +58,24 @@ app.post('/api/items', upload.single('imageSrc'), function(req, res) {
       // some other approach (e.g. UUIDs) to ensure a globally unique id. We'll
       // treat Date.now() as unique-enough for our purposes.
 
-      console.log("req.body.id", req.body.id)
-
       if(!_.isUndefined(req.body.id) && req.body.id !=="") {
-        console.log("editing", req.body.id)
 
         var id = parseInt(req.body.id);
 
         // Find item index using indexOf+find
         var index = _.indexOf(items, _.find(items, {id: id}));
-        var original = items[index]; 
+        var original = items[index];
 
         if(index>=0) {
           // Replace item at index using native splice
           var objectUpdated = _.has(req,'file') 
-            ? {id: id, imageSrc: original.imageSrc, text: req.body.text}
-            : {id: id, imageSrc: req.file.originalname, text: req.body.text}
+            ? {id: id, imageSrc: req.file.originalname, text: req.body.text}
+            : {id: id, imageSrc: original.imageSrc, text: req.body.text}
 
           items.splice(index, 1, objectUpdated);
         }
       }
       else {
-        console.log("adding")
 
         var newItem = {
           id: Date.now(),
