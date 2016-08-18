@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
     <!-- Strangerlist styles -->
     <link rel="stylesheet" href="assets/css/app.css">
-  <body ng-app="mainApp">
+
+    <link href="https://fonts.googleapis.com/css?family=Bangers|Titillium+Web" rel="stylesheet">
+  <body ng-app="mainApp" id="top">
     <div ng-include="'views/navbar.html'"></div>
     <div id="content" ng-controller="StrangerListController as strangerlist" class="container-fluid">
         <div ng-include="'views/list.html'"></div>
@@ -19,13 +21,13 @@
     </div>
     <script id="myModalContent.html" type="text/ng-template">
         <div class="modal-header">
-            <h3 class="modal-title">Removing element</h3>
+            <h3 class="modal-title">Warning!</h3>
         </div>
         <div class="modal-body">
-            <p>¿Are you shure to remove this element?</p>
+            <p>¿Are you shure you want to delete this item?</p>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-primary" ng-click="submit()">OK</button>
+            <button class="btn btn-primary" ng-click="submit()">Yes, delete it!</button>
             <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
         </div>
     </script>

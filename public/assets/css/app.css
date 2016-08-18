@@ -1,5 +1,7 @@
 /*** Micro clearfix hack ***/
 
+
+
 /**
  * For modern browsers
  * 1. The space content is one way to avoid an Opera bug when the
@@ -27,11 +29,16 @@
     *zoom: 1;
 }
 
-body { padding-top: 70px; }
+body { 
+  padding-top: 70px; 
+  font-family: 'Titillium Web', sans-serif;
+  background-color: #999;
+  color: #222;
+}
 
 #content ul {
-  padding: 30px;
-  margin: 0;
+  margin-top: 30px;
+  border: 1px solid #666;
 }
 
 #content li {
@@ -40,19 +47,28 @@ body { padding-top: 70px; }
 }
 
 #content li:nth-child(odd) {
-  background-color: #ddd;
+  background-color: #666;
 }
 
-#content li.placeholder {background: rgb(255,240,120);}
-#content li.placeholder:before {
-  content: "Drop here";
-  color: rgb(225,210,90);
+.ui-state-highlight {
+    height: 210px;
+    border: 4px dashed #5bc0de;
+    background: #5481db !important;
 }
 
 .label {
   font-size: 14px;
+  margin-left: 5px;
 }
 
 .form-control {
-  margin-top: 7px;
+  margin-top: 10px;
+  height: auto;
+}
+
+.story {
+  font-family: 'Bangers', cursive;
+  font-size: 20px;
+  color: white;
+  padding-right: 130px;
 }

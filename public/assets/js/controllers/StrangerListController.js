@@ -2,7 +2,7 @@
 
   mainApp
     
-    .controller('StrangerListController', ['$scope', '$http', '$modal', 'Upload', function($scope, $http, $modal, Upload) {
+    .controller('StrangerListController', ['$scope', '$http', '$modal', 'Upload', '$location', '$anchorScroll', function($scope, $http, $modal, Upload, $location, $anchorScroll) {
 
       var strangerlist = this;
 
@@ -21,15 +21,12 @@
         });
       }
 
-      strangerlist.reloadItems = function(items) {
-        $scope.items = items;
-      }
-
       strangerlist.sortableOptions = {
         // called after a node is dropped
         stop: function(e, ui) {
           strangerlist.updateItems();
-        }
+        },
+        placeholder: "ui-state-highlight"
       };
 
       strangerlist.updateItems = function() {
@@ -50,9 +47,11 @@
       strangerlist.setCurrentItem = function(item) {
         strangerlist.currentItem = item;
         strangerlist.editedItem = angular.copy(strangerlist.currentItem);
+        $location.hash('top');
+        $anchorScroll();
       }
 
-      strangerlist.removeCurrentItem = function(item) {
+      strangerlist.deleteCurrentItem = function(item) {
         $http.delete('/api/items/'+item.id)
 
           .then(function successCallback(response) {
@@ -63,7 +62,7 @@
           }, function errorCallback(response) {
             // called asynchronously if an error occurs
             // or server returns response with an error status.
-            console.log("Error saving items", response)
+            console.log("Error deleting item", response)
           });
       }
 
@@ -74,8 +73,6 @@
       strangerlist.resetForm = function() {
         strangerlist.currentItem = null;
         strangerlist.editedItem = {};
-
-        //strangerlist.detailsForm = $setUntouched();
       }
 
       strangerlist.generateId = function() {
@@ -86,8 +83,13 @@
         var newItem = angular.copy(strangerlist.editedItem);
         newItem.id = strangerlist.generateId();
 
-        strangerlist.upload($file, newItem);
-        strangerlist.resetForm();
+
+        if(typeof $file.name == 'string') {
+          strangerlist.upload($file, newItem);
+          strangerlist.resetForm();
+        }
+        else
+          alert("You must to select an image")
       }
 
       strangerlist.updateItem = function($file) {
@@ -114,7 +116,7 @@
               controller: function ($scope, $modalInstance, $log, item) {
                   $scope.item = item;
                   $scope.submit = function () {
-                      strangerlist.removeCurrentItem(item);
+                      strangerlist.deleteCurrentItem(item);
                       $modalInstance.dismiss('cancel');
                   }
                   $scope.cancel = function () {
@@ -145,7 +147,7 @@
           });
         }
         else
-          console.log("No file added")
+          console.log("There is no file to upload")
       }
 
       strangerlist.updateItemServer = function(item) {
@@ -159,7 +161,7 @@
           }, function errorCallback(response) {
             // called asynchronously if an error occurs
             // or server returns response with an error status.
-            console.log("Error saving items", response)
+            console.log("Error updating item", response)
           });
       }
 

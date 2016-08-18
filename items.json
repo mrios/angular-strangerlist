@@ -35,13 +35,13 @@
         "imageSrc": "dustin.jpg"
     },
     {
-        "id": "8",
+        "id": 8,
         "text": "Joyce and Hopper are taken in for questioning. Nancy and Jonathan prepare to fight the monster and save Will.",
         "imageSrc": "lucas.jpg"
     },
     {
         "id": 9,
-        "text": "This is a test",
+        "text": "Mike plays the guitar",
         "imageSrc": "mike-guitar.jpg"
     },
     {
@@ -51,7 +51,7 @@
     },
     {
         "id": 11,
-        "text": "This is a test",
+        "text": "Love is in the (mysterious) air",
         "imageSrc": "jonha-nancy.jpg"
     },
     {
@@ -61,7 +61,7 @@
     },
     {
         "id": 13,
-        "text": "This is a test",
+        "text": "Will sends messages through the lights",
         "imageSrc": "messages.jpg"
     }
 ]
