@@ -1,6 +1,14 @@
 # angular-strangerlist
 angular-strangerlist is a Single Page Application built with AngularJS and Bootstrap 3 on frontend and express server on backend storing data in a json file. Supports file upload with dimension validation, sorting list, and a complete CRUD for manages items. Uses web services using HTTP Methods: GET, POST, PUT and DELETE.
 
+## Clone the app via git or Download the .zip file
+
+You need Git installed
+
+```sh
+git clone https://github.com/mrios/angular-strangerlist.git
+```
+
 ## To use
 
 You need Node.js installed
@@ -21,10 +29,13 @@ If you need help using or installing Node.js, please use the
 
 See an instructive video about [Installing Node.js and updating npm](https://docs.npmjs.com/getting-started/installing-node)
 
-### Running Node commands
+## Running Node commands
 
 ```sh
 npm install
 node server.js
 ```
-And visit <http://localhost:3000/>
+
+## Check out the application!
+
+Visit <http://localhost:3000/> on your favorite web browser.
