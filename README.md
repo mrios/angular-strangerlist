@@ -1,5 +1,5 @@
 # angular-strangerlist
-angular-strangerlist is a Single Page Application built with AngularJS and Bootstrap 3 on frontend and express server on backend storing data in a json file. Supports file upload with dimension validation, sorting list, and a complete CRUD for manages items. Uses web services GET, POST, PUT and DELETE.
+angular-strangerlist is a Single Page Application built with AngularJS and Bootstrap 3 on frontend and express server on backend storing data in a json file. Supports file upload with dimension validation, sorting list, and a complete CRUD for manages items. Uses web services using HTTP Methods: GET, POST, PUT and DELETE.
 
 ## To use
 
